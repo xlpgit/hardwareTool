@@ -1,0 +1,50 @@
+
+/*cssreset made by haoeryou*/
+
+body, blockquote, dd, dl, figure, form, p, pre, h1, h2, h3, h4, h5, h6 { margin: 0; }
+menu, ul, ol { list-style: none; margin: 0; padding: 0; }
+body { line-height: 1.5; background-color: #FFFFFF; }
+body, input, button, select, textarea { font-size: 14px; }
+h1,h2,h3,h4,h5,h6{
+  font-weight: normal;
+}
+input[type="button"], input[type="reset"] { font-size: 16px; }
+body, input, button, select, optgroup, option, textarea, pre { font-family: 'Microsoft YaHei', Arial, Roboto, 'Droid Sans', 'Hiragino Sans GB', 'Simsun', STXihei, 'sans-serif'; }
+iframe { background-color: #FFFFFF; vertical-align: middle; }
+a { color: #000000; }
+a:hover { text-decoration: underline; color: #EE7600; }
+img { vertical-align: bottom; }
+a img { border: 0 none; }
+fieldset { margin: 0; padding: 0; }
+legend { color: windowtext; }
+button, input.ie6 { overflow: visible; padding: .1em .25em; cursor: pointer; }
+input[type="button"],  input[type="reset"] { overflow: visible; padding: .1em .25em; cursor: pointer; }
+input[type="text"], select, textarea { background-color: #FFFFFF; }
+select { border: 1px inset; }
+textarea { overflow: auto; vertical-align: text-bottom; *vertical-align: auto; border: 1px solid; resize: vertical; }
+table { border-spacing: 0; }
+td, th, caption { padding: 0; }
+
+.clearfix:before,.clearfix:after {
+  content: "";
+  display: table;
+}
+.clearfix:after {
+  clear: both;
+}
+.clearfix {*zoom:1;}/* IE/7/6 */﻿
+.w150{
+  width: 150px;
+}
+.w40{
+  width: 40px;
+}
+a{text-decoration: none;}
+select{
+  border:1px solid #ccc;
+  height: 30px;
+  border-radius: 3px;
+  padding:3px 5px;
+  margin:0 5px;
+  min-width: 100px;
+}

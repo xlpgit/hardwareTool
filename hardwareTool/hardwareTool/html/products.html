@@ -1,0 +1,186 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Web Store - Products</title>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<!-- templatemo 341 web store -->
+<!-- 
+Web Store Template 
+http://www.templatemo.com/preview/templatemo_341_web_store 
+-->
+<link href="../html/css/templatemo_style.css" rel="stylesheet" type="text/css" />
+
+<link rel="stylesheet" type="text/css" href="../html/css/ddsmoothmenu.css" />
+
+<script type="text/javascript" src="../html/js/jquery.min.js"></script>
+<script type="text/javascript" src="../html/js/ddsmoothmenu.js">
+
+/***********************************************
+* Smooth Navigational Menu- (c) Dynamic Drive DHTML code library (www.dynamicdrive.com)
+* This notice MUST stay intact for legal use
+* Visit Dynamic Drive at http://www.dynamicdrive.com/ for full source code
+***********************************************/
+
+</script>
+
+<script type="text/javascript">
+
+ddsmoothmenu.init({
+	mainmenuid: "templatemo_menu", //menu DIV id
+	orientation: 'h', //Horizontal or vertical menu: Set to "h" or "v"
+	classname: 'ddsmoothmenu', //class added to menu's outer DIV
+	//customtheme: ["#1c5a80", "#18374a"],
+	contentsource: "markup" //"markup" or ["container_id", "path_to_menu_file"]
+})
+
+function clearText(field)
+{
+    if (field.defaultValue == field.value) field.value = '';
+    else if (field.value == '') field.value = field.defaultValue;
+}
+</script>
+
+<link rel="stylesheet" type="text/css" href="../html/css/styles.css" />
+<script language="javascript" type="text/javascript" src="../html/scripts/mootools-1.2.1-core.js"></script>
+<script language="javascript" type="text/javascript" src="../html/scripts/mootools-1.2-more.js"></script>
+<script language="javascript" type="text/javascript" src="../html/scripts/slideitmoo-1.1.js"></script>
+<script language="javascript" type="text/javascript">
+	window.addEvents({
+		'domready': function(){
+			/* thumbnails example , div containers */
+			new SlideItMoo({
+						overallContainer: 'SlideItMoo_outer',
+						elementScrolled: 'SlideItMoo_inner',
+						thumbsContainer: 'SlideItMoo_items',		
+						itemsVisible: 5,
+						elemsSlide: 2,
+						duration: 200,
+						itemsSelector: '.SlideItMoo_element',
+						itemWidth: 171,
+						showControls:1});
+		},
+		
+	});
+</script>
+
+</head>
+
+<body id="subpage">
+
+<div id="templatemo_wrapper">
+	 <!--表头开始-->
+        #parse("../html/include/headRight.html")
+    <!--表头结束-->
+    <!--菜单开始--> 
+    <div id="templatemo_menu" class="ddsmoothmenu">
+         <ul>
+            #foreach($p in $Model.firstList)               
+                #if ($p.F_Name=="About")
+                <li><a href="menu.ashx?id=$p.First_ID">$p.F_Name</a>
+                    <ul>   
+                        #foreach($se in $Model.Second)                                    
+                         <li> <a href="menu.ashx?secondId=$se.Second_ID">$se.S_Name</a></li>
+                         #end
+                    </ul>
+                  </li>                 
+                #else
+                 <li><a href="menu.ashx?id=$p.First_ID">$p.F_Name</a></li>
+                 #end
+            #end
+        </ul>
+        <br style="clear: left" />
+    </div> <!-- end of templatemo_menu -->
+    <!--菜单结束-->
+    
+    <div class="cleaner h20"></div>
+    <div id="templatemo_main_top"></div>
+    <div id="templatemo_main">
+    <!--滑动的部分开始-->
+    	<div id="product_slider">
+    		<div id="SlideItMoo_outer">	
+                <div id="SlideItMoo_inner">			
+                    <div id="SlideItMoo_items">
+                         #foreach($p in $Model.slideList)
+                        <div class="SlideItMoo_element">                        
+                                <a href="ProductDetail.ashx?id=$p.Product_ID" target="_parent"> 
+                                <img src="$p.P_Pic"/></a>                             
+                        </div>	
+                        #end  
+                    </div>			
+                </div>
+            </div>
+            <div class="cleaner"></div>
+        </div>
+        <!--滑动的部分结束-->
+        <!--类别开始-->
+        <div id="sidebar">
+        	<h3>Categories</h3>
+             <ul class="sidebar_menu">
+                #foreach($p in $Model.category)
+			    <li><a href="ProductList.ashx?id=$p.Category_ID">$p.C_Name</a></li>   
+                #end         
+			</ul>
+            <!--类别结束-->
+            <h3>Newsletter</h3>
+            <p>Praesent aliquam mi id tellus pretium pulvinar in vel ligula.</p>
+            <div id="newsletter">
+                <form action="#" method="get">
+                  <input type="text" value="Subscribe" name="email_newsletter" id="email_newsletter" title="email_newsletter" onfocus="clearText(this)" onblur="clearText(this)" class="txt_field" />
+                  <input type="submit" name="subscribe" value="Subscribe" alt="Subscribe" id="subscribebtn" title="Subscribe" class="subscribebtn"  />
+                </form>
+                <div class="cleaner"></div>
+            </div>
+        </div> <!-- END of sidebar -->
+        
+        <div id="content">
+            <!--中间开始-->
+        	<h2>Aenean et dolor diam</h2>
+            #foreach($p in $Model.product1)
+        	<div class="col col_14 product_gallery no_margin_right">
+            	<a href="ProductDetail.ashx?id=$p.Product_ID"><img src="$p.P_Pic" alt="Product 01" /></a>
+                <h3>$p.P_Name</h3>
+                <p class="product_price">$p.P_Price</p>
+                <a href="ShoppingCart.ashx?id=$p.Product_ID" class="add_to_cart">Add to Cart</a>
+            </div>  
+            #end                 	
+            <a href="ProductList.ashx?id=1" class="more float_r">View all</a>
+			<div class="cleaner h50"></div>
+
+            <h2>Aenean pulvinar</h2>
+            #foreach($p in $Model.product2)
+        	<div class="col col_14 product_gallery no_margin_right">
+            	<a href="ProductDetail.ashx?id=$p.Product_ID"><img src="$p.P_Pic" alt="Product 01" /></a>
+                <h3>$p.P_Name</h3>
+                <p class="product_price">$p.P_Price</p>
+                <a href="ShoppingCart.ashx?id=$p.Product_ID" class="add_to_cart">Add to Cart</a>
+            </div>  
+            #end                 	
+            <a href="ProductList.ashx?id=2" class="more float_r">View all</a>
+			<div class="cleaner h50"></div>
+
+            <h2>Cras bibendum auctor</h2>
+            #foreach($p in $Model.product3)
+        	<div class="col col_14 product_gallery no_margin_right">
+            	<a href="ProductDetail.ashx?id=$p.Product_ID"><img src="$p.P_Pic" alt="Product 01" /></a>
+                <h3>$p.P_Name</h3>
+                <p class="product_price">$p.P_Price</p>
+                <a href="ShoppingCart.ashx?id=$p.Product_ID" class="add_to_cart">Add to Cart</a>
+            </div>  
+            #end                 	
+            <a href="ProductList.ashx?id=3" class="more float_r">View all</a>
+			<div class="cleaner h50"></div>
+
+            <!--中间结束-->
+        </div> <!-- END of content -->
+        <div class="cleaner"></div>
+    </div> <!-- END of main -->
+    
+     <!--底部开始-->
+    #parse("../html/include/footer.html")
+   <!--底部结束-->  
+</div>
+
+</body>
+</html>

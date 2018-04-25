@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+     #parse("Admin/include/header.htm")
+     <div class="main-content clearfix">
+    <!-- 主菜单 start -->
+    #parse("Admin/include/nav.htm")
+    <div class="container">
+       <h3 class="current-title">增加种类</h3>
+      <div class="table-content">
+      <form action="Category.ashx">
+        <table class="table table-bordered">
+         <tbody>
+            <tr>
+              <td>种类名称</td>
+              <td>
+              <input type="hidden" name="Action" value="Add"/>
+                <input type="text" name="name"/>              
+              </td>
+            </tr>            
+            <tr>
+              <td>管理员名称</td>
+              <td>
+                <select name="admin">    
+                <option>请选择</option>
+                   #foreach($p in $Model.admin)                 
+                  <option value="$p.Admin_ID">$p.Name</option>     
+                  #end            		    
+                </select>
+              </td>
+            </tr>
+          </tbody>
+       </table>
+       <div class="btn-content">
+          <input type="submit" class="btn" value="确定"/>
+          <a href="javascript:history.go(-1)" class="btn">返回</a>
+      </div>
+     </form>
+     </div>
+     </div>
+    </div>
+</body>
+</html>

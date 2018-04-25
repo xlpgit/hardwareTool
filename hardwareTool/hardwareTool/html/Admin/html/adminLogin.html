@@ -1,0 +1,116 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>五金工具后台管理</title>
+    <link rel="stylesheet" href="../css/cssreset.css"/>
+   <link rel="stylesheet" href="../css/main.css"/>
+   <style type="text/css">
+        .ver
+        {
+            color:Red;
+            }
+   </style>
+</head>
+<body>
+    <div style="background:url(../html/images/bac.jpg);height:855px;background-size:100% 100%">
+	<form   action="adminLogin.ashx " class="signIn-box" style="width:350px;height:330px; border-radius:6px;margin:0px;position:relative;top:24%;left:60%;background-color:#fff">
+	    <div class="sign-inBox">
+	    	<div style="text-align:center;" class="fenkuang">
+	    		<span style="position:relative;left:-65px;top:25px;">平台登录</span>
+        <input  type="hidden" name="flag" value="$Model.flag"/>
+	    		<div>
+                    <span>用户名：</span>
+                    <input type="text" id="login" placeholder="用户名" name="loginName" onblur="checkName()" class="sumsumsum" style="width:180px;margin:50px 0 20px 0;display:inline-block"/>
+                    <span id="log" class="ver"></span>
+                </div>
+	    		<div>
+                    <span>密码：</span>
+                    <input type="password" id="password" placeholder="密码" onblur="testPass()" name="password" class="sumsumsum" style="width:180px;margin:10px 0;display:inline-block"/></div>
+                 <div>
+                     <div>
+                        <span>验证码：</span>
+                        <input type="text" name="chkinfo" id="chkinfo" class="Captcha" placeholder="请输入验证码！" onblur="checkCode()" style="width:180px;margin:10px 0;display:inline-block"/>
+                        <span id="code" class="ver"></span>
+                      </div>
+                     <div class="bk42">
+                            <img src="/identifyingCode.ashx" alt="点击换一张" width="100px" height="35px" onclick="getimg()" id="chkimg" />
+                     </div>
+                 </div>
+		 		<input type="submit" value="登录"  name="login"  class="login" id="subm" style="background-color:#ed6c00;color:#fff;width:190px;margin:20px 0 0 0px "/>
+			</div>
+	   </div>	   
+	</form>
+</div>
+
+<script type="text/javascript" src="http://localhost:8616/html/js/jquery-1.4.3.min.js"></script>    <!--引入js库，能够写jQuery-->
+<script type="text/javascript" src="http://localhost:8616/html/js/ajax.js"></script>
+<script type="text/javascript" src="http://localhost:8616/html/js/json2.js"></script>
+<script type="text/javascript">
+    function getimg() {//我们就是通过这个函数来异步获取信息的
+        document.getElementById("chkimg").src = "identifyingCode.ashx?" + Math.random();
+    }
+
+    function checkName() {
+        var loginName = document.getElementById("login").value;
+//        var pass = $("#password").val;
+        ajax("adminLogin.ashx?loginName=" + loginName + "&&Action=name", function (resText) {
+//                    alert(resText);
+            if (resText == "noUser") {
+                document.getElementById("log").innerHTML = "该用户不能为空！";
+                $('#subm').attr('disabled', "true");
+            }
+            else if (resText == "no") {
+                document.getElementById("log").innerHTML = "该用户不存在！";
+                $('#subm').attr('disabled', "true");
+            }
+            else if ((resText == "yes")) {
+                document.getElementById("log").innerHTML = "";
+                $('#subm').removeAttr("disabled");
+            }
+      
+
+        }); 
+    }
+
+    function checkCode() {
+        var code = document.getElementById("chkinfo").value;
+        ajax("adminLogin.ashx?code=" + code + "&&Action=codes", function (resText) {
+            //           alert(resText);
+            if (resText == "idetifyingCode error") {
+//                document.getElementById("code").innerHTML = "验证码错误！";
+               
+                // 这种形式行了
+                $("#code").html("验证码错误");
+                $('#subm').attr('disabled', "true");
+            }
+            else if (resText = "idetifyingCode right") {
+                document.getElementById("code").innerHTML = "";
+                $('#subm').removeAttr("disabled");
+            }
+        });
+    }
+
+    function testPass() {
+        var loginName = $("#login").val();  //用jQuery方式获取值
+        var pass = $("#password").val();
+        ajax("adminLogin.ashx.ashx?pass=" + pass + "&&Action=passw" + "&loginName=" + loginName, function (resText) {
+           
+            if (resText == "password null") {
+                $('#subm').attr('disabled', "true");
+            }
+            else if (resText = "password error") {
+                $('#subm').attr('disabled', "true");
+            }
+            else if (resText == "password right") {
+                $('#subm').removeAttr("disabled");
+            }
+        });
+    }
+     
+ </script>
+
+
+
+
+</body>
+</html>

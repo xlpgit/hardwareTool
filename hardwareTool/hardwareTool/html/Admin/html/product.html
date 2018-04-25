@@ -1,0 +1,98 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+     <style type="text/css">
+        .current {
+        font-weight:bold;
+       background: #353535;
+        color   : red;
+        }
+    </style>
+</head>
+<body>
+     #parse("Admin/include/header.htm")
+     <div class="main-content clearfix">
+     #parse("Admin/include/nav.htm")
+      <div class="container">
+      <h3 class="current-title">产品管理信息</h3>  
+      <div class="search-content">
+        <form action="Product.ashx">
+            <input type="hidden" name="Action" value="Search"/>
+          <label>搜索类型：</label>
+            <select name="search" id="">        
+              <option value="姓名">姓名</option>
+            </select>
+            <input type="text" class="w150" name="searchText" value="$Model.searchValue"/>
+            <input type="submit" class="btn" value="查询"/>
+            <a href="Product.ashx?Action=Add" class="btn">新增</a>
+        </form>
+      </div>
+       <!-- 结果容器 start -->
+      
+    <!-- 表格容器 start -->
+     <div class="table-content">
+       <table class="table table-bordered">
+         <thead>
+           <tr>
+             <th>商品名称</th>
+             <th>种类名称</th>
+             <th>管理员名称</th>
+             <th>商品价格</th>
+             <th>商品图片</th>
+             <th>商品状态</th>
+             <th>商品模型</th>
+             <th>制造商</th>
+             <th>商品细节</th>
+             <th>产品数量</th>
+             <th>操作</th>
+           </tr>
+         </thead>
+         <tbody>
+          #foreach($p in $Model.product) 
+           <tr>
+             <td>$p.P_Name</td>
+             <td>$p.C_Name</td>
+             <td>$p.Name</td>
+             <td>$p.P_Price </td>
+             <td><img src="$p.P_Pic"/></td>
+             <td>$p.Availability</td>
+             <td>$p.Model</td>
+             <td >$p.Manufacturer</td>
+             <td>$p.P_Detail</td>
+             <td>$p.Quantity</td>
+              <td>	      
+               <a href="Product.ashx?EditID=$p.Product_ID&Action=Edit">编辑</a>
+               <a href="Product.ashx?DelID=$p.Product_ID&Action=Delete" onclick="return confirm('是否删除该信息？');">删除</a>
+             </td>
+           </tr>   
+           #end         
+         </tbody>
+       </table>
+
+            <div class="page">
+        <a href="Product.ashx?PageNumber=1"><<</a>&nbsp
+        #if($Model.PageNumber>1)
+            #set($PrePageNumber = $Model.PageNumber - 1)
+        <a  href="Product.ashx?PageNumber=$PrePageNumber"><</a>
+        #end
+
+        #foreach($pd in $Model.PageData)       <!--除了有数字之外，还得有链接-->
+            #if($pd.Title==$Model.PageNumber)    <!-- 选中之后显示不同的颜色-->
+            <a class="current" href="$pd.Href">$pd.Title</a>
+            #else
+             <a href="$pd.Href">$pd.Title</a>
+            #end
+         #end
+
+        #if($Model.PageNumber<$Model.pageCount)
+            #set($NextPageNumber=$Model.PageNumber+1)
+        <a href="Product.ashx?PageNumber=$NextPageNumber">></a>&nbsp  
+        #end
+        <a href="Product.ashx?PageNumber=$Model.PageCount">>></a>
+      </div>
+       </div>
+       </div>
+     </div>
+</body>
+</html>

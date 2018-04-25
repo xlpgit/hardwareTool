@@ -1,0 +1,146 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Web Store - Shopping Cart</title>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<!-- templatemo 341 web store -->
+<!-- 
+Web Store Template 
+http://www.templatemo.com/preview/templatemo_341_web_store 
+-->
+<link href="../html/css/templatemo_style.css" rel="stylesheet" type="text/css" />
+
+<link rel="stylesheet" type="text/css" href="../html/css/ddsmoothmenu.css" />
+
+<script type="text/javascript" src="../html/js/jquery.min.js"></script>
+<script type="text/javascript" src="../html/js/ddsmoothmenu.js">
+
+/***********************************************
+* Smooth Navigational Menu- (c) Dynamic Drive DHTML code library (www.dynamicdrive.com)
+* This notice MUST stay intact for legal use
+* Visit Dynamic Drive at http://www.dynamicdrive.com/ for full source code
+***********************************************/
+
+</script>
+
+<script type="text/javascript">
+
+ddsmoothmenu.init({
+	mainmenuid: "templatemo_menu", //menu DIV id
+	orientation: 'h', //Horizontal or vertical menu: Set to "h" or "v"
+	classname: 'ddsmoothmenu', //class added to menu's outer DIV
+	//customtheme: ["#1c5a80", "#18374a"],
+	contentsource: "markup" //"markup" or ["container_id", "path_to_menu_file"]
+})
+
+</script>
+
+<script language="javascript" type="text/javascript">
+function clearText(field)
+{
+	if (field.defaultValue == field.value) field.value = '';
+	else if (field.value == '') field.value = field.defaultValue;
+}
+</script>
+
+</head>
+
+<body id="subpage">
+
+<div id="templatemo_wrapper">
+	 <!--表头开始-->
+        #parse("../html/include/headRight.html")
+    <!--表头结束-->
+    
+    <div id="templatemo_menu" class="ddsmoothmenu">
+          <ul>
+            #foreach($p in $Model.firstList)               
+                #if ($p.F_Name=="About")
+                <li><a href="menu.ashx?id=$p.First_ID">$p.F_Name</a>
+                    <ul>   
+                        #foreach($se in $Model.Second)                                    
+                         <li> <a href="menu.ashx?secondId=$se.Second_ID">$se.S_Name</a></li>
+                         #end
+                    </ul>
+                  </li>                 
+                #else
+                 <li><a href="menu.ashx?id=$p.First_ID">$p.F_Name</a></li>
+                 #end
+            #end
+        </ul>
+        <br style="clear: left" />
+    </div> <!-- end of templatemo_menu -->
+    
+    <div class="cleaner h20"></div>
+    <div id="templatemo_main_top"></div>
+    <div id="templatemo_main">
+    	
+        <div id="sidebar">
+        	<h3>Categories</h3>
+            <ul class="sidebar_menu">
+                #foreach($p in $Model.category)
+			    <li><a href="ProductList.ashx?id=$p.Category_ID">$p.C_Name</a></li>   
+                #end       
+			</ul>
+            <h3>Newsletter</h3>
+            <p>Praesent aliquam mi id tellus pretium pulvinar in vel ligula.</p>
+            <div id="newsletter">
+                <form action="#" method="get">
+                  <input type="text" value="Subscribe" name="email_newsletter" id="email_newsletter" title="email_newsletter" onfocus="clearText(this)" onblur="clearText(this)" class="txt_field" />
+                  <input type="submit" name="subscribe" value="Subscribe" alt="Subscribe" id="subscribebtn" title="Subscribe" class="subscribebtn"  />
+                </form>
+                <div class="cleaner"></div>
+            </div>
+        </div> <!-- END of sidebar -->
+       
+        <div id="content">
+		
+        	<table width="700px" cellspacing="0" cellpadding="5">
+                   	  <tr bgcolor="#CCCCCC">
+                        	<th width="220" align="left">Image </th> 
+                        	<th width="180" align="left">Description </th> 
+                       	  	<th width="100" align="center">Quantity </th> 
+                        	<th width="60" align="right">Price </th> 
+                        	<th width="60" align="right">Total </th> 
+                        	<th width="90"> </th>                           
+                      </tr>
+
+                      #foreach($p in $Model.shopList)
+                    	<tr> 
+                        	<td><a href="ProductDetail.ashx?id=$p.Product_ID"  alt="image 01" ><img src="$p.P_Pic" /></a></td> 
+                        	<td>$p.P_Name</td> 
+                            <td align="center"><input type="text" value="$p.Quantity" style="width: 20px; text-align: right" /> </td>
+                            <td align="right">$p.P_Price </td> 
+                            <td align="right">$p.Total_Price </td>
+                            <td align="center"> <a href="ShoppingCart.ashx?removeId=$p.Shops_ID" onclick="return confirm('确认要删除该商品吗？')";><img src="../html/images/remove_x.gif" alt="remove" /><br />Remove</a> </td>
+						</tr>
+                    #end
+                                           
+                        <tr>
+                        	<td colspan="3" align="right"  height="40px">Have you modified your basket? Please click here to <a href="shoppingcart.html"><strong>Update</strong></a>&nbsp;&nbsp;</td>
+                            <td align="right" style="background:#ccc; font-weight:bold"> Total </td>
+                            <td align="right" style="background:#ccc; font-weight:bold">$Model.endPrice </td>
+                            <td style="background:#ccc; font-weight:bold"> </td>
+						</tr>
+					</table>
+                    <div style="float:right; width: 215px; margin-top: 20px;">
+                    
+                        <div class="checkout"><a href="Checkout.ashx" class="more">Proceed to Checkout</a></div>
+                        <div class="cleaner h20"></div>
+                        <div class="continueshopping"><a href="javascript:history.back()" class="more">Continue Shopping</a></div>
+                    	
+                    </div>
+            
+		</div>
+        <div class="cleaner"></div>
+    </div> <!-- END of main -->
+        <!--底部开始-->
+    #parse("../html/include/footer.html")
+   <!--底部结束-->
+   
+</div>
+
+</body>
+</html>

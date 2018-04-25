@@ -1,0 +1,127 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    #parse("Admin/include/header.htm")
+     <div class="main-content clearfix">
+         #parse("Admin/include/nav.htm")
+          <div class="container">
+       <h3 class="current-title">增加商品</h3>
+      <div class="table-content">
+      <form action="Product.ashx" method="post" enctype="multipart/form-data">
+        <input type="hidden" name="Action" value="Add"/>
+        <table class="table table-bordered">
+         <tbody>
+            <tr>
+              <td>商品名称</td>
+              <td>
+                <input type="text" name="name"/>                
+              </td>
+            </tr>   
+            <tr>
+                <td>种类名称</td>
+                <td>
+                    <select name="category">  
+                    <option>请选择</option>
+                       #foreach($p in $Model.category)                 
+                      <option value="$p.Category_ID">$p.C_Name</option>     
+                      #end            		    
+                </select>
+                </td>
+            </tr>  
+            <tr>
+                <td>管理员名称</td>
+                <td>
+                    <select name="admin">  
+                    <option>请选择</option>
+                       #foreach($p in $Model.admin)                 
+                      <option value="$p.Admin_ID">$p.Name</option>     
+                      #end            		    
+                </select>
+                </td>
+            </tr>                
+            <tr>
+              <td>商品价格</td>
+                <td>
+                   <input type="text" name="price"/>                
+                </td>
+            </tr>
+            <tr>
+              <td>商品图片</td>
+              <td>
+              <!--<input type="text" name="picture"/>-->
+              <label><input type="file" name="fileUpload" onchange="imgPreview(this)" /></label><label id="High1" style="color:#ff0000; margin-left:0px"></label>
+                <!--<a><img />上传图片</a>   -->           
+              </td>
+            </tr>
+            <tr>
+              <td>商品状态</td>
+              <td>
+                <input type="text" name="availability"/>             
+              </td>
+            </tr>
+            <tr>
+              <td>商品模型</td>
+              <td>
+                <input type="text" name="model"/>             
+              </td>
+            </tr>
+          <tr>
+              <td>制造商</td>
+              <td>
+                <input type="text" name="manufa"/>             
+              </td>
+            </tr>
+            <tr>
+              <td>商品细节</td>
+              <td>
+                <input type="text" name="detail"/>             
+              </td>
+            </tr>
+              <tr>
+              <td>商品数量</td>
+              <td>
+                <input type="text" name="num"/>             
+              </td>
+            </tr>
+          </tbody>
+       </table>
+       <div class="btn-content">
+          <input type="submit" class="btn" value="确定"/>
+          <a href="javascript:history.go(-1)" class="btn">返回</a>
+      </div>
+     </form>
+     </div>
+     </div>
+      </div>
+       <script type="text/javascript">
+           function imgPreview(fileDom) {
+               //判断是否支持FileReader
+               if (window.FileReader) {
+                   var reader = new FileReader();
+               } else {
+                   alert("您的设备不支持图片预览功能，如需该功能请升级您的设备！");
+               }
+
+               //获取文件
+               var file = fileDom.files[0];
+               var imageType = /^image\//;
+               //是否是图片
+               if (!imageType.test(file.type)) {
+                   alert("请选择图片！");
+                   return;
+               }
+               //读取完成
+               reader.onload = function (e) {
+                   //获取图片dom
+                   var img = document.getElementById("preview");
+                   //图片路径设置为读取的图片
+                   img.src = e.target.result;
+               };
+               reader.readAsDataURL(file);
+           }
+    </script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>五金工具后台管理</title>
+</head>
+<body>
+     #parse("Admin/include/header.htm")
+     <div class="main-content clearfix">
+         #parse("Admin/include/nav.htm")
+          <div class="container">
+          <h3 class="current-title">种类管理信息</h3>  
+              <div class="search-content">
+                <form action="Category.ashx">
+                    <input type="hidden" name="Action" value="Search"/>
+                  <label>搜索类型：</label>
+                    <select name="search" id="">
+                      <option value="种类名称">种类名称</option>
+                    </select>
+                    <input type="text" class="w150" name="searchText" value="$Model.searchValue"/>
+                    <input type="submit" class="btn" value="查询"/>
+                    <a href="Category.ashx?Action=Add" class="btn">新增</a>
+                </form>
+              </div>
+               <div class="table-content">
+       <table class="table table-bordered">
+         <thead>
+           <tr>
+             <th>种类名称</th>   
+             <th>管理员名字</th>         
+             <th>操作</th>
+           </tr>
+         </thead>
+         <tbody>
+        #foreach($p in $Model.category)
+           <tr>
+             <td>$p.C_Name</td> 
+             <td>$p.Name</td>           
+              <td>	      
+               <a href="Category.ashx?EditID=$p.Category_ID&Action=Edit">编辑</a>
+               <a href="Category.ashx?DelID=$p.Category_ID&Action=Delete" onclick="return confirm('是否删除？');">删除</a>
+             </td>
+           </tr>  
+           #end    
+         </tbody>
+       </table>
+      </div>
+     </div>
+</body>
+</html>

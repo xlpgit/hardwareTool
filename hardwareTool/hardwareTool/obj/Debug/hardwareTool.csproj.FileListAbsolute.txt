@@ -1,0 +1,6 @@
+g:\user\visual studio 2010\Projects\hardwareTool\hardwareTool\bin\hardwareTool.dll
+g:\user\visual studio 2010\Projects\hardwareTool\hardwareTool\bin\hardwareTool.pdb
+g:\user\visual studio 2010\Projects\hardwareTool\hardwareTool\obj\Debug\hardwareTool.dll
+g:\user\visual studio 2010\Projects\hardwareTool\hardwareTool\obj\Debug\hardwareTool.pdb
+g:\user\visual studio 2010\Projects\hardwareTool\hardwareTool\obj\Debug\hardwareTool.csprojResolveAssemblyReference.cache
+g:\user\visual studio 2010\Projects\hardwareTool\hardwareTool\bin\NVelocity.dll

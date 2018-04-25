@@ -1,0 +1,387 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{B94FAA7C-9F4B-4B60-8022-CAC67CC99E84}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>hardwareTool</RootNamespace>
+    <AssemblyName>hardwareTool</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <UseIISExpress>false</UseIISExpress>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="NVelocity">
+      <HintPath>E:\大三\大三下\网络应用开发与技术\studentSystem第一期\studentSystem\bin\NVelocity.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="About.aspx" />
+    <Content Include="Account\ChangePassword.aspx" />
+    <Content Include="Account\ChangePasswordSuccess.aspx" />
+    <Content Include="Account\Login.aspx" />
+    <Content Include="Account\Register.aspx" />
+    <Content Include="html\Admin\css\cssreset.css" />
+    <Content Include="html\Admin\css\main.css" />
+    <Content Include="html\Admin\html\addCategory.html" />
+    <Content Include="html\Admin\html\addProduct.html" />
+    <Content Include="html\Admin\html\category.html" />
+    <Content Include="html\Admin\html\editCategory.html" />
+    <Content Include="html\Admin\html\editProduct.html" />
+    <Content Include="html\Admin\html\adminLogin.html" />
+    <Content Include="html\Admin\html\orderMangement.html" />
+    <Content Include="html\Admin\html\product.html" />
+    <Content Include="html\Admin\images\logo.png" />
+    <Content Include="html\Admin\images\user.png" />
+    <Content Include="html\Admin\include\footer.htm" />
+    <Content Include="html\Admin\include\header.htm" />
+    <Content Include="html\Admin\include\nav.htm" />
+    <Content Include="html\Admin\js\jquery-2.1.1.min.js" />
+    <Content Include="html\Admin\js\laydate\laydate.js" />
+    <Content Include="html\Admin\js\laydate\need\laydate.css" />
+    <Content Include="html\Admin\js\laydate\skins\dahong\icon.png" />
+    <Content Include="html\Admin\js\laydate\skins\dahong\laydate.css" />
+    <Content Include="html\Admin\js\laydate\skins\default\icon.png" />
+    <Content Include="html\Admin\js\laydate\skins\default\laydate.css" />
+    <Content Include="html\Admin\js\laydate\skins\molv\icon.png" />
+    <Content Include="html\Admin\js\laydate\skins\molv\laydate.css" />
+    <Content Include="html\order.html" />
+    <Content Include="html\css\ddsmoothmenu.css" />
+    <Content Include="html\css\lightbox.css" />
+    <Content Include="html\css\styles.css" />
+    <Content Include="html\css\templatemo_style.css" />
+    <Content Include="html\about.html" />
+    <Content Include="html\checkout.html" />
+    <Content Include="html\contact.html" />
+    <Content Include="html\faqs.html" />
+    <Content Include="html\images\bac.jpg" />
+    <Content Include="html\include\footer.html" />
+    <Content Include="html\include\headRight.html" />
+    <Content Include="html\index.html" />
+    <Content Include="html\js\ajax.js" />
+    <Content Include="html\js\json2.js" />
+    <Content Include="html\login.html" />
+    <Content Include="html\productdetail.html" />
+    <Content Include="html\products.html" />
+    <Content Include="html\scripts\ddsmoothmenu.css" />
+    <Content Include="html\scripts\ddsmoothmenu.js" />
+    <Content Include="html\scripts\jquery.js" />
+    <Content Include="html\scripts\jquery.lightbox-0.5.js" />
+    <Content Include="html\scripts\jquery.min.js" />
+    <Content Include="html\scripts\mootools-1.2-more.js" />
+    <Content Include="html\scripts\mootools-1.2.1-core.js" />
+    <Content Include="html\scripts\piroBox.1_2.js" />
+    <Content Include="html\scripts\slideitmoo-1.1.js" />
+    <Content Include="html\shoppingcart.html" />
+    <Content Include="html\images\2co.gif" />
+    <Content Include="html\images\cart.png" />
+    <Content Include="html\images\china.png" />
+    <Content Include="html\images\closelabel.gif" />
+    <Content Include="html\images\gallery\01.jpg" />
+    <Content Include="html\images\gallery\02.jpg" />
+    <Content Include="html\images\gallery\03.jpg" />
+    <Content Include="html\images\gallery\04.jpg" />
+    <Content Include="html\images\gallery\05.jpg" />
+    <Content Include="html\images\gallery\06.jpg" />
+    <Content Include="html\images\gallery\07.jpg" />
+    <Content Include="html\images\germany.png" />
+    <Content Include="html\images\india.png" />
+    <Content Include="html\images\loading.gif" />
+    <Content Include="html\images\nextlabel.gif" />
+    <Content Include="html\images\paypal.gif" />
+    <Content Include="html\images\prevlabel.gif" />
+    <Content Include="html\images\product\01.jpg" />
+    <Content Include="html\images\product\02.jpg" />
+    <Content Include="html\images\product\03.jpg" />
+    <Content Include="html\images\product\04.jpg" />
+    <Content Include="html\images\product\05.jpg" />
+    <Content Include="html\images\product\06.jpg" />
+    <Content Include="html\images\product\07.jpg" />
+    <Content Include="html\images\product\08.jpg" />
+    <Content Include="html\images\product\09.jpg" />
+    <Content Include="html\images\product\10.jpg" />
+    <Content Include="html\images\product\10_l.jpg" />
+    <Content Include="html\images\remove_x.gif" />
+    <Content Include="html\images\sidebar_header_bg.png" />
+    <Content Include="html\images\slideitmoo_back.png" />
+    <Content Include="html\images\slideitmoo_forward.png" />
+    <Content Include="html\images\templatemo_body_home.png" />
+    <Content Include="html\images\templatemo_body_subpage.png" />
+    <Content Include="html\images\templatemo_image_01.png" />
+    <Content Include="html\images\templatemo_image_02.png" />
+    <Content Include="html\images\templatemo_list.png" />
+    <Content Include="html\images\templatemo_list_01.png" />
+    <Content Include="html\images\templatemo_list_02.png" />
+    <Content Include="html\images\templatemo_logo.png" />
+    <Content Include="html\images\templatemo_main_bottom.png" />
+    <Content Include="html\images\templatemo_main_middle.png" />
+    <Content Include="html\images\templatemo_main_top.png" />
+    <Content Include="html\images\templatemo_menu_divider.png" />
+    <Content Include="html\images\templatemo_middle.png" />
+    <Content Include="html\images\templatemo_searchbox.png" />
+    <Content Include="html\images\templatemo_slider.png" />
+    <Content Include="html\images\templatemo_submenu.png" />
+    <Content Include="html\images\usa.png" />
+    <Content Include="html\js\builder.js" />
+    <Content Include="html\js\ddsmoothmenu.js" />
+    <Content Include="html\js\effects.js" />
+    <Content Include="html\js\jquery-1.4.3.min.js" />
+    <Content Include="html\js\jquery.js" />
+    <Content Include="html\js\jquery.min.js" />
+    <Content Include="html\js\lightbox.js" />
+    <Content Include="html\js\mootools-1.2-more.js" />
+    <Content Include="html\js\mootools-1.2.1-core.js" />
+    <Content Include="html\js\prototype.js" />
+    <Content Include="html\js\scriptaculous.js" />
+    <Content Include="html\js\slideitmoo-1.1.js" />
+    <Content Include="html\productList.html" />
+    <Content Include="html\orderDetail.html" />
+    <Content Include="Styles\Site.css" />
+    <Content Include="Default.aspx" />
+    <Content Include="Global.asax" />
+    <Content Include="Scripts\jquery-1.4.1-vsdoc.js" />
+    <Content Include="Scripts\jquery-1.4.1.js" />
+    <Content Include="Scripts\jquery-1.4.1.min.js" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="About.ashx.cs">
+      <DependentUpon>About.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="About.aspx.cs">
+      <DependentUpon>About.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="About.aspx.designer.cs">
+      <DependentUpon>About.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\ChangePassword.aspx.cs">
+      <DependentUpon>ChangePassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\ChangePassword.aspx.designer.cs">
+      <DependentUpon>ChangePassword.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\ChangePasswordSuccess.aspx.cs">
+      <DependentUpon>ChangePasswordSuccess.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\ChangePasswordSuccess.aspx.designer.cs">
+      <DependentUpon>ChangePasswordSuccess.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\Register.aspx.cs">
+      <DependentUpon>Register.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\Register.aspx.designer.cs">
+      <DependentUpon>Register.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\adminLogin.ashx.cs">
+      <DependentUpon>adminLogin.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Category.ashx.cs">
+      <DependentUpon>Category.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Product.ashx.cs">
+      <DependentUpon>Product.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Checkout.ashx.cs">
+      <DependentUpon>Checkout.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="CommonHelper.cs" />
+    <Compile Include="Contact.ashx.cs">
+      <DependentUpon>Contact.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Faqs.ashx.cs">
+      <DependentUpon>Faqs.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="identifyingCode.ashx.cs">
+      <DependentUpon>identifyingCode.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Index.ashx.cs">
+      <DependentUpon>Index.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Loginout.ashx.cs">
+      <DependentUpon>Loginout.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Menu.ashx.cs">
+      <DependentUpon>Menu.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Order.ashx.cs">
+      <DependentUpon>Order.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="OrderDetail.ashx.cs">
+      <DependentUpon>OrderDetail.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="ProductDetail.ashx.cs">
+      <DependentUpon>ProductDetail.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="ProductList.ashx.cs">
+      <DependentUpon>ProductList.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Products.ashx.cs">
+      <DependentUpon>Products.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ShoppingCart.ashx.cs">
+      <DependentUpon>ShoppingCart.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Site.Master.cs">
+      <DependentUpon>Site.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site.Master.designer.cs">
+      <DependentUpon>Site.Master</DependentUpon>
+    </Compile>
+    <Compile Include="SqlHelper.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Account\Web.config" />
+    <Content Include="Site.Master" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Index.ashx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Products.ashx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ProductList.ashx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ProductDetail.ashx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ShoppingCart.ashx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Menu.ashx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="About.ashx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Checkout.ashx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Contact.ashx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Faqs.ashx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Loginout.ashx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="identifyingCode.ashx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Order.ashx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="OrderDetail.ashx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Admin\Product.ashx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Admin\Category.ashx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Admin\adminLogin.ashx" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>8616</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,161 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Web Store Template</title>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<!-- templatemo 341 web store -->
+<!-- 
+Web Store Template 
+http://www.templatemo.com/preview/templatemo_341_web_store 
+-->
+<link href="../html/css/templatemo_style.css" rel="stylesheet" type="text/css" />
+
+<link rel="stylesheet" type="text/css" href="../html/css/ddsmoothmenu.css" />
+
+<script type="text/javascript" src="../html/js/jquery.min.js"></script>
+<script type="text/javascript" src="../html/js/ddsmoothmenu.js">
+
+/***********************************************
+* Smooth Navigational Menu- (c) Dynamic Drive DHTML code library (www.dynamicdrive.com)
+* This notice MUST stay intact for legal use
+* Visit Dynamic Drive at http://www.dynamicdrive.com/ for full source code
+***********************************************/
+
+</script>
+
+<script type="text/javascript">
+
+ddsmoothmenu.init({
+	mainmenuid: "templatemo_menu", //menu DIV id
+	orientation: 'h', //Horizontal or vertical menu: Set to "h" or "v"
+	classname: 'ddsmoothmenu', //class added to menu's outer DIV
+	//customtheme: ["#1c5a80", "#18374a"],
+	contentsource: "markup" //"markup" or ["container_id", "path_to_menu_file"]
+})
+
+</script>
+
+<link rel="stylesheet" type="text/css" href="../html/css/styles.css" />
+<script language="javascript" type="text/javascript" src="../html/scripts/mootools-1.2.1-core.js"></script>
+<script language="javascript" type="text/javascript" src="../html/scripts/mootools-1.2-more.js"></script>
+<script language="javascript" type="text/javascript" src="../html/scripts/slideitmoo-1.1.js"></script>
+<script language="javascript" type="text/javascript">
+	window.addEvents({
+		'domready': function(){
+			/* thumbnails example , div containers */
+			new SlideItMoo({
+						overallContainer: 'SlideItMoo_outer',
+						elementScrolled: 'SlideItMoo_inner',
+						thumbsContainer: 'SlideItMoo_items',		
+						itemsVisible: 5,
+						elemsSlide: 2,
+						duration: 200,
+						itemsSelector: '.SlideItMoo_element',
+						itemWidth: 171,
+						showControls:1});
+		},
+		
+	});
+
+	function clearText(field)
+	{
+		if (field.defaultValue == field.value) field.value = '';
+		else if (field.value == '') field.value = field.defaultValue;
+	}
+</script>
+
+</head>
+
+<body id="home">
+
+<div id="templatemo_wrapper">
+     <!--表头开始-->
+        #parse("../html/include/headRight.html")
+    <!--表头结束-->
+    <!--菜单开始-->
+    <div id="templatemo_menu" class="ddsmoothmenu">
+        <ul>
+            #foreach($p in $Model.firstList)               
+                #if ($p.F_Name=="About")
+                <li><a href="menu.ashx?id=$p.First_ID">$p.F_Name</a>
+                    <ul>   
+                        #foreach($se in $Model.Second)                                    
+                         <li> <a href="menu.ashx?secondId=$se.Second_ID">$se.S_Name</a></li>
+                         #end
+                    </ul>
+                  </li>                 
+                #else
+                 <li><a href="menu.ashx?id=$p.First_ID">$p.F_Name</a></li>
+                 #end
+            #end
+        </ul>
+        <br style="clear: left" />
+    </div> <!-- end of templatemo_menu -->
+    <!--菜单结束-->
+
+    <div id="templatemo_middle">
+    	<img src="../html/images/templatemo_image_01.png" alt="Image 01" />
+    	<h1>Introducing Web Store</h1>
+        <p>Web Store is a free css template for your personal or commercial websites. Feel free to download, edit and use this template for any purpose.</p>
+        <a href="Products.ashx" class="buy_now">Browse All Products</a>
+    </div> <!-- END of middle -->
+
+    <!--首页滑动的部分-->
+    <div id="templatemo_main_top"></div>
+    <div id="templatemo_main">
+    	<div id="product_slider">
+    		<div id="SlideItMoo_outer">	
+                <div id="SlideItMoo_inner">			
+                    <div id="SlideItMoo_items">
+                      #foreach($p in $Model.slideList)
+                        <div class="SlideItMoo_element">                        
+                                <a href="ProductDetail.ashx?id=$p.Product_ID" target="_parent"> 
+                                <img src="$p.P_Pic"/></a>                             
+                        </div>	
+                        #end
+                    </div>			
+                </div>
+            </div>
+            <div class="cleaner"></div>
+        </div>
+        <!--显示类别-->
+        <div id="sidebar">
+        	<h3>Categories</h3>
+            <ul class="sidebar_menu">
+                #foreach($p in $Model.category)
+			    <li><a href="ProductList.ashx?id=$p.Category_ID">$p.C_Name</a></li>   
+                #end       
+			</ul>
+            <h3>Newsletter</h3>
+            <p>Praesent aliquam mi id tellus pretium pulvinar in vel ligula.</p>
+            <div id="newsletter">
+                <form action="#" method="get">
+                  <input type="text" value="Subscribe" name="email_newsletter" id="email_newsletter" title="email_newsletter" onfocus="clearText(this)" onblur="clearText(this)" class="txt_field" />
+                  <input type="submit" name="subscribe" value="Subscribe" alt="Subscribe" id="subscribebtn" title="Subscribe" class="subscribebtn"  />
+                </form>
+                <div class="cleaner"></div>
+            </div>
+        </div> <!-- END of sidebar -->
+        
+       <!-- 中间显示的商品-->
+        <div id="content">
+             #foreach($p in $Model.product)
+        	<div class="col col_14 product_gallery no_margin_right">              
+            	<a href="ProductDetail.ashx?id=$p.Product_ID"><img src="$p.P_Pic" /></a>
+                <h3>$p.P_Name</h3>
+                <p class="product_price">$p.P_Price</p>
+                <a href="ShoppingCart.ashx?id=$p.Product_ID" class="add_to_cart">Add to Cart</a>              
+            </div>
+            #end        	  
+        </div> <!-- END of content -->
+        <div class="cleaner"></div>
+    </div> <!-- END of main -->
+    <!--底部开始-->
+    #parse("../html/include/footer.html")
+   <!--底部结束-->
+</div>
+
+</body>
+</html>
